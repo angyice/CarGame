@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
+    private Rigidbody controller;
     private Vector3 moveVector;
-
-    private float speed = 5.0f;
+    private Transform _groundChecker;
+    private float speed = 2f;
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
+    private bool _isGrounded = true;
+    public float GroundDistance = 0.2f;
+    public LayerMask Ground;
+
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<Rigidbody>();
+        _groundChecker = transform.GetChild(0);
     }
 
     
@@ -21,16 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveVector = Vector3.zero;
 
-        if (controller.isGrounded)
-        {
-            verticalVelocity = -0.5f;
-        
-        }
-
-        else
-        {
-            verticalVelocity -= gravity * Time.deltaTime; 
-        }
+        _isGrounded = Physics.CheckSphere(_groundChecker.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
 
         //X - Left & Right 
         moveVector.x = Input.GetAxisRaw("Horizontal") * speed;
@@ -41,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
         //Z - Forward & Backward
         moveVector.z = speed;
 
-        controller.Move(moveVector * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        controller.MovePosition(controller.position + moveVector * speed * Time.fixedDeltaTime);
     }
 }
