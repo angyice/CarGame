@@ -246,11 +246,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5def61ce1d8f9cb44a8c5986b791c686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platformPrefabs:
+  platformPrefabs:
+  - {fileID: 2126391199790922752, guid: acb63f2002d5da1439d821a0eb9d8f4d, type: 3}
   - {fileID: 6769546822154615060, guid: c4638d9cdbed4ef4795597c97be08af4, type: 3}
   - {fileID: 4297893322256743996, guid: da1588bb8e1da8e4096fcd36f7cbfd41, type: 3}
   - {fileID: 1227653300476898346, guid: 6e31ee6f835742c42be370ba9a09cc3a, type: 3}
-  _zedOffset: 0
 --- !u!1 &396108651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 343138824998162598, guid: dd546341f5fa3174eb4e8ad3cb71b6a8, type: 3}
@@ -478,12 +478,12 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1

@@ -9,11 +9,6 @@ public class CameraMovement : MonoBehaviour
     public float yCameraAdjust;
     public float zCameraAdjust;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         zFocus = GameObject.FindGameObjectWithTag("Player").transform.position.z;
